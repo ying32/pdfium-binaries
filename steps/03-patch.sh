@@ -15,9 +15,8 @@ apply_patch() {
 
 pushd "${SOURCE}"
 
-[ "$OS" != "emscripten" ] && apply_patch "$PATCHES/shared_library.patch"
+#[ "$OS" != "emscripten" ] && apply_patch "$PATCHES/shared_library.patch"
 apply_patch "$PATCHES/public_headers.patch"
-apply_patch "$PATCHES/hotfixes.patch"
 
 [ "$ENABLE_V8" == "true" ] && apply_patch "$PATCHES/v8/pdfium.patch"
 
@@ -50,15 +49,15 @@ case "$OS" in
     cp "$PATCHES/wasm/config.gn" "build/config/wasm/BUILD.gn"
     ;;
 
-#  win)
-#    apply_patch "$PATCHES/win/build.patch" build
-#
-#    VERSION=${PDFium_VERSION:-0.0.0.0}
-#    YEAR=$(date +%Y)
-#    VERSION_CSV=${VERSION//./,}
-#    export YEAR VERSION VERSION_CSV
-#    envsubst < "$PATCHES/win/resources.rc" > "resources.rc"
-#    ;;
+  #win)
+  #  apply_patch "$PATCHES/win/build.patch" build
+
+  #  VERSION=${PDFium_VERSION:-0.0.0.0}
+  #  YEAR=$(date +%Y)
+  #  VERSION_CSV=${VERSION//./,}
+  #  export YEAR VERSION VERSION_CSV
+  #  envsubst < "$PATCHES/win/resources.rc" > "resources.rc"
+  #  ;;
 esac
 
 case "$TARGET_ENVIRONMENT" in
