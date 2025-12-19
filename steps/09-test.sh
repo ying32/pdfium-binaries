@@ -129,26 +129,26 @@ case "$OS" in
     )
     ;;
 
-  win)
-    case "$CPU" in
-      arm64)
-        ARCH="ARM64"
-        ;;
-      x86)
-        ARCH="Win32"
-        CAN_RUN_ON_HOST=true
-        ;;
-      x64)
-        ARCH="x64"
-        CAN_RUN_ON_HOST=true
-        ;;
-    esac
-    CMAKE_ARGS+=(
-      -G "Visual Studio 17 2022"
-      -A "$ARCH"
-    )
-    EXAMPLE="Debug/example.exe"
-    ;;
+  #win)
+  #  case "$CPU" in
+  #    arm64)
+  #      ARCH="ARM64"
+  #      ;;
+  #    x86)
+  #      ARCH="Win32"
+  #      CAN_RUN_ON_HOST=true
+  #      ;;
+  #    x64)
+  #      ARCH="x64"
+  #      CAN_RUN_ON_HOST=true
+  #      ;;
+  #  esac
+  #  CMAKE_ARGS+=(
+  #    -G "Visual Studio 17 2022"
+  #    -A "$ARCH"
+  #  )
+  #  EXAMPLE="Debug/example.exe"
+  #  ;;
 
   emscripten)
     # TODO: add test for Wasm

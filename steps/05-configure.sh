@@ -44,6 +44,9 @@ mkdir -p "$BUILD"
     mac)
       echo "clang_use_chrome_plugins = false"
       ;;
+    win)
+      echo "pdf_is_complete_lib = true"
+      ;;
     emscripten)
       echo 'pdf_is_complete_lib = true'
       echo 'is_clang = false'
